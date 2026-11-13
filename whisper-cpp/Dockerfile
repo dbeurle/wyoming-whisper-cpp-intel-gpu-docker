@@ -10,7 +10,6 @@ WORKDIR /whisper.cpp
 RUN \
     git clone --depth 1 --branch v${WHISPER_CPP_VERSION} https://github.com/ggml-org/whisper.cpp.git . \
     && cmake -S . -B build \
-        -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_C_COMPILER=icx \
         -DCMAKE_CXX_COMPILER=icpx \
         -DGGML_CCACHE=OFF \
@@ -21,4 +20,4 @@ RUN \
         -DWHISPER_BUILD_EXAMPLES=ON \
         -DWHISPER_BUILD_TESTS=OFF \
         -DWHISPER_BUILD_SERVER=OFF \
-    && cmake --build build --parallel ${BUILD_PARALLEL_JOBS} --target whisper-server
+    && cmake --build build --config Release --parallel ${BUILD_PARALLEL_JOBS} --target whisper-server
