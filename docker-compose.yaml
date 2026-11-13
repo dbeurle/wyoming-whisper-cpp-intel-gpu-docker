@@ -29,7 +29,6 @@ services:
       # If you have multiple render devices, you may require additional lines
       # for each device.
       - /dev/dri/renderD128:/dev/dri/renderD128
-      - /dev/dri/card0:/dev/dri/card0
     environment:
       # Set SYCL_CACHE_PERSISTENT=1 and set the cache directory once a 
       # resolution to the sycl runtime bug has been fixed.
