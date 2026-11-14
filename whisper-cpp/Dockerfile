@@ -21,3 +21,5 @@ RUN \
         -DWHISPER_BUILD_TESTS=OFF \
         -DWHISPER_BUILD_SERVER=OFF \
     && cmake --build build --config Release --parallel ${BUILD_PARALLEL_JOBS} --target whisper-server
+
+ENTRYPOINT [ "/whisper.cpp/build/bin/whisper-server"]

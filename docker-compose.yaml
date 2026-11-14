@@ -37,11 +37,10 @@ services:
       # - SYCL_CACHE_DIR=/models/sycl_cache
       - SYCL_DEVICE_ALLOWLIST=BackendName:level_zero
     command: |
-      build/bin/whisper-server
-      -t ${WHISPER_CPP_THREADS}
-      -l ${WHISPER_LANG}
-      -bs ${WHISPER_BEAM_SIZE}
-      -m /models/ggml-${WHISPER_MODEL}.bin
+      --threads ${WHISPER_CPP_THREADS}
+      --language ${WHISPER_LANG}
+      --beam-size ${WHISPER_BEAM_SIZE}
+      --model /models/ggml-${WHISPER_MODEL}.bin
       --host 0.0.0.0
       --port 8910
       --suppress-nst
